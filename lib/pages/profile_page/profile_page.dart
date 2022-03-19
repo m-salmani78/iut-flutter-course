@@ -8,7 +8,7 @@ class ProfilePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
-          onPressed: () {},
+          onPressed: () => Navigator.pop(context),
           splashRadius: 24,
           icon: const Icon(Icons.chevron_left_rounded),
         ),
@@ -18,38 +18,42 @@ class ProfilePage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         foregroundColor: Colors.black,
       ),
-      body: Column(
-        children: [
-          const SizedBox(height: 16),
-          _buildProfilePic(),
-          const SizedBox(height: 16),
-          const Text(
-            'Mahdi Salmani',
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(height: 8),
-          const Text('+98 912 345 6789'),
-          const SizedBox(height: 16),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text('Edit Profile'),
-            style: ElevatedButton.styleFrom(
-              padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 20),
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(10)),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            const SizedBox(height: 16),
+            _buildProfilePic(),
+            const SizedBox(height: 16),
+            const Text(
+              'Mahdi Salmani',
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
-          ),
-          const SizedBox(height: 16),
-          _buildItems(
-              icon: const Icon(Icons.person), title: const Text('Profile')),
-          _buildItems(
-              icon: const Icon(Icons.notifications),
-              title: const Text('Notifications')),
-          _buildItems(
-              icon: const Icon(Icons.settings), title: const Text('Settings')),
-          _buildItems(
-              icon: const Icon(Icons.logout), title: const Text('Log Out')),
-        ],
+            const SizedBox(height: 8),
+            const Text('+98 912 345 6789'),
+            const SizedBox(height: 16),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text('Edit Profile'),
+              style: ElevatedButton.styleFrom(
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 24, vertical: 16),
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10)),
+              ),
+            ),
+            const SizedBox(height: 16),
+            _buildItems(
+                icon: const Icon(Icons.person), title: const Text('Profile')),
+            _buildItems(
+                icon: const Icon(Icons.notifications),
+                title: const Text('Notifications')),
+            _buildItems(
+                icon: const Icon(Icons.settings),
+                title: const Text('Settings')),
+            _buildItems(
+                icon: const Icon(Icons.logout), title: const Text('Log Out')),
+          ],
+        ),
       ),
     );
   }
